@@ -1,3 +1,5 @@
+import { ChevronRight } from "lucide-react"
+
 import {
   Collapsible,
   CollapsibleContent,
@@ -15,6 +17,9 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
+  SidebarMenuSub,
+  SidebarMenuSubItem,
+  SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
 
 export function Admin() {
@@ -24,9 +29,32 @@ export function Admin() {
         <SidebarContent>
           <SidebarGroup>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton>Componentes</SidebarMenuButton>
-              </SidebarMenuItem>
+              <Collapsible >
+                <SidebarMenuItem>
+                  <CollapsibleTrigger className="w-full">
+                    <SidebarMenuButton>
+                      <span>Componentes</span>
+                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton>
+                          <a href="#">
+                            <span>Button</span>
+                          </a>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton>
+                          Card
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
               <SidebarMenuItem>
                 <SidebarMenuButton>Pagina</SidebarMenuButton>
               </SidebarMenuItem>
