@@ -6,13 +6,13 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 
+import { Chunk } from "@/components/grid/Chunk"
+
 import {
   Sidebar,
   SidebarProvider,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
-  SidebarHeader,
   SidebarInset,
   SidebarMenu,
   SidebarMenuItem,
@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/sidebar"
 
 export function Admin() {
+  const chunks = Array.from({length:56},(e,i)=>i + 1)
+
   return (
     <SidebarProvider>
       <Sidebar variant="inset">
@@ -63,10 +65,11 @@ export function Admin() {
         </SidebarContent>
       </Sidebar>
       <SidebarInset>
-        <div className="flex min-h-svh p-6">
-          <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-            <h1 className="font-medium">Admin Panel</h1>
-            <p>Welcome to the admin panel!</p>
+        <div className="flex flex-1 flex-col gap-4 p-6">
+          <div className="grid grid-cols-8 grid-flow-row-dense bg-muted/50 md:min-h-min w-full h-4/5 p-1">
+            {chunks.map(c => (
+              <Chunk index={c} />
+            ))}
           </div>
         </div>
       </SidebarInset>
